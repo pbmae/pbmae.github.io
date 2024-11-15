@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi! I'm Phoebe</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            min-height: 100vh; /* Ensure body takes at least full height of the viewport */
+        }
+        .container {
+            display: flex; /* Use flexbox to arrange CV and menu */
+            max-width: 1000px; /* Limit overall width */
+            width: 100%; /* Ensure full width */
+        }
+        .cv-container {
+            flex-grow: 1; /* Allow CV container to grow */
+            max-width: 600px; /* Limit max width for the CV */
+            width: 100%; /* Ensure it takes full width within max */
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 auto; /* Center the CV container */
+        }
+        .cv-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px; /* Center the picture and add bottom margin */
+            border: 3px solid #007BFF;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: auto;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+            text-align: center; /* Center the title */
+        }
+        h1:hover {
+            color: #0056b3;
+        }
+        b {
+            color:  #0056b3;
+        }
+        h2, h3 {
+            color: #007BFF;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+        h2:hover, h3:hover {
+            color: #0056b3;
+            
+        }
+        a {
+            color:  #0056b3;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            
+        }
+        a:hover {
+            color:  #007BFF;
+            transform: scale(1.05);
+            
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .contact-info:hover {
+            background-color: #f0f0f0;
+        }
+        .credit {
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            padding-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .credit:hover {
+            
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f1f1f1;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        ul li:hover {
+            background: #e0e0e0;
+            transform: scale(1.02);
+        }
+        .menu {
+            position: fixed; /* Fix the menu to the screen */
+            top: 20px; /* Space from the top */
+            right: 20px; /* Space from the right */
+            max-width: 200px;
+            background: #007BFF;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .menu:hover {
+            transform: translateY(-5px);
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .menu a:hover {
+            color: #FFD700;
+            transform: scale(1.05);
+        }
+        .linktree {
+            position: fixed; /* Fix the menu to the screen */
+            top: 300px; /* Space from the top */
+            right: 20px; /* Space from the right */
+            max-width: 200px;
+            color: black;
+            border-radius: 10px;
+            padding: 20px;
+            /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+            transition: transform 0.3s ease;
+        }
+        /* .linktree:hover {
+            transform: translateY(-5px);
+        } */
+        .linktree a {
+            color:  #0056b3;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .linktree a:hover {
+            color:  #007BFF;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                padding: 10px;
+                align-items: center; /* Center align items in column direction */
+            }
+            .container {
+                flex-direction: column; /* Stack CV and menu on small screens */
+                align-items: center; /* Center align on smaller screens */
+            }
+            .cv-container {
+                margin: 0; /* Remove margin to center */
+                margin-bottom: 20px;
+            }
+            .menu {
+                display: block; /* Ensure menu is displayed on mobile */
+                width: 100%; /* Full width for the menu */
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="profile">
+    <div class="cv-container">
+        <div class="profile-pic">
+            <img src="profile-picture.jpeg" alt="Profile Picture">
+        </div>
+        <h1>Phoebe Ching 
+        </h1>
+        
+        <div class="contact-info">
+            <p>Alternative Name(s): 莊麗美, Phoebe Lim Ching</p>
+            <p>Email: pbching{at}yorku.ca</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/phoebe-lim-ching-152ba8101/" target="_blank">https://www.linkedin.com/in/phoebe-lim-ching-152ba8101/</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Hello World</h2>
+            <p>My name is Phoebe. I make <b>mathematical models</b> that describe how we perceive the world! I like to refer to myself as a <b>Vision Scientist</b> in Training as I am currently working towards a PhD at <b>York University</b> in Canada. I received two MPhil degrees (<b>Bioengineering</b>, <b>Industrial Engineering and Decision Analytics</b>) from the Hong Kong University of Science and Technology. I am originally from <b>Manila</b>, Philippines and speak fluent Tagalog. My colleagues say that I am skilled at <b>editorial work</b> (i.e. proofreading their application materials). In my free time, I like to <b>draw</b>, read fiction, and play chill games. I am at my happiest while working on a <b>passion project</b>.</p>
+            <br />
+        </div>
+
+        <div class="section" id="work">
+            <h2>Work</h2>
+            <h3>Industry Collaborations</h3>
+
+            <p><b>Stereoscopic Depth Perception User Study</b>, Oct 2024-Present</p>
+            <ul>
+                <li>A collaboration with a <b>major VR-HMD brand</b>.</li>
+                
+            </ul>
+
+            <p><b>Pupil Swim User Study</b>, 2022-2023</p>
+            <ul>
+                <li>A collaboration with a <b>major VR-HMD brand</b>.</li>
+                <li>We developed a psychophysical model for predictive testing of pupil swim in new VR-HMD designs.</li>
+                <li>Read our paper here: <a href="https://doi.org/10.1002/sdtp.16736" target="_blank">https://doi.org/10.1002/sdtp.16736</a></li>
+            </ul>
+
+            <p><b>Machine-learning "sensors" for water quality</b>, 2020-2022</p>
+            <ul>
+                <li>A project with the <b>Drainage Services Department</b> of Hong Kong.</li>
+                <li>We predicted complex water quality parameters from simpler sensors.</li>
+                <li>Read our paper here: <a href="https://doi.org/10.1016/j.envres.2022.112953" target="_blank">https://doi.org/10.1016/j.envres.2022.112953</a></li>
+                <li>Also, read our review paper based on my preparations for this project: <a href="https://doi.org/10.1016/j.jwpe.2021.102367" target="_blank">https://doi.org/10.1016/j.jwpe.2021.102367</a></li>
+            </ul>
+
+            <h3>Teaching Experience</h3>
+
+            <p><b>York University</b><br />Teaching Assistant, 2024</p>
+            <ul>
+                <li>TA for the course EECS 4441 <b>Human-Computer Interactions</b> taught by Prof. I. Scott MacKenzie.</li>
+                
+            </ul>
+
+            <p><b>Hong Kong University of Science and Technology</b><br />Instructional Assistant, 2023-2024</p>
+            <ul>
+                <li>Teaching team for COMP 1021 (an introductory <b>Python</b> programming course) coordinated by Prof. David Rossiter.</li>
+                <li>Teaching team for COMP 2211 <b>Exploring Artificial Intelligence</b> coordinated by Prof. Desmond Tsoi.</li>
+                
+            </ul>
+
+            <p><b>De La Salle University</b><br />Teaching Associate, 2018-2019; Lecturer, 2017-2018</p>
+            <ul>
+                <li>Taught courses on statistics, engineering economy, operations maangement, and system dynamics.</li>
+                <li>Briefly Vice Chair for the Industrial (Systems) Engineering Department (Jan-Aug 2019).</li>
+            </ul>
+            <br />
+        </div>
+
+        <div class="section" id="academics">
+            <h2>Academic Background</h2>
+
+            <h3>PhD in Electrical Engineering and Computer Science</h3>
+            <p><b>York University</b>, 2024-Present</p>
+            <p>
+                <ul>
+                    <li>Member of the <a href="https://percept.eecs.yorku.ca/" target="_blank">Virtual Reality and Perception Lab</a> supervised by Prof. Robert Allison.</li>
+                </ul>
+            </p>
+
+            
+
+            <h3>MPhil in Bioengineering</h3>
+            <p><b>Hong Kong University of Science and Technology</b>, 2021-2023</p>
+            <p><ul>
+                <li>Thesis on psychophysical modeling of pupil swim from VR-HMD supervised by Prof. Richard So: <a href="https://lbezone.hkust.edu.hk/rse/?p=63018" target="_blank">link to my thesis</a></li>
+            </ul></p>
+            
+            
+
+            <h3>AOTULE Summer Program Representative</h3>
+            <p><b>Tokyo Institute of Technology</b>, 2022</p>
+            <p>
+                <ul>
+                    <li>Member of <a href="https://www.clab-tokyotech.org/about" target="_blank">Cross Laboratory</a> supervised by Prof. Jeffrey Cross.</li>
+                    <li>Read our published collaboration on using machine learning to streamline biofuel experiments: <a href="https://pubs.acs.org/doi/10.1021/acsomega.3c04275" target="_blank">https://pubs.acs.org/doi/10.1021/acsomega.3c04275</a></li>
+                </ul>
+            </p>
+            
+
+            <h3>MPhil in Industrial Engineering and Decision Analytics</h3>
+            <p><b>Hong Kong University of Science and Technology</b>, 2019-2021</p>
+            <p>
+                <ul>
+                    <li>Thesis on machine learning applications to environmental engineering: <a href="https://lbezone.hkust.edu.hk/bib/991012980220603412" target="_blank">link to my thesis</a></li>
+                </ul>
+            </p>
+            
+
+            <h3>BS-MS Honors Program in Industrial Engineering</h3>
+            <p><b>De La Salle University - Manila</b>, 2012-2017</p>
+            <p><ul>
+                <li>Supervised by Dr. Jose Edgar S. Mutuc.</li>
+            </ul></p>
+            <br />
+
+        </div>
+
+        <!-- <div class="section" id="activities">
+            <h2>Co-curricular Activities</h2>
+            <ul>
+                <li>Project Management</li>
+                <li>Software Development</li>
+                <li>JavaScript, HTML, CSS</li>
+                <li>Team Leadership</li>
+            </ul>
+        </div> -->
+        
+        <div class="credit">
+            <center>Copyright &copy; Phoebe Ching 2024</center>
+        </div>
+
+
+    </div>
+
+    <div class="menu">
+        <h2>Sections</h2>
+        <a href="#profile">Profile</a>
+        <a href="#work">Work</a>
+        <a href="#academics">Academics</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="linktree">
+        <h2>More &nbsp; &nbsp; &nbsp;</h2>
+        <a href="#profile">Photos</a>
+        <a href="#profile">Publications</a>
+    </div>
+</div>
+
+<script>
+    // Add smooth scroll behavior for the menu links
+    document.querySelectorAll('.menu a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href'); // Get the target section ID
+            const targetElement = document.querySelector(targetId); // Select the target section
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth', // Smooth scroll behavior
+                    block: 'start' // Align the top of the target section with the top of the viewport
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
