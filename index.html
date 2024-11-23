@@ -179,6 +179,41 @@
             margin: 4px;
             transition: all 0.3s ease;
         }
+        .image-link {
+            color:  #0056b3;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .image-link:hover {
+            color:  #007BFF;
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with some transparency */
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%; /* Limit the size of the image */
+            max-height: 80%; /* Limit the height */
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
         @media (max-width: 500px) {
             .hamburger {
                 display: flex; /* Show hamburger icon in mobile view */
@@ -309,6 +344,9 @@
                 <ul>
                     <li>Member of <a href="https://www.clab-tokyotech.org/about" target="_blank">Cross Laboratory</a> supervised by Prof. Jeffrey Cross.</li>
                     <li>Read our published collaboration on using machine learning to streamline biofuel experiments: <a href="https://pubs.acs.org/doi/10.1021/acsomega.3c04275" target="_blank">https://pubs.acs.org/doi/10.1021/acsomega.3c04275</a></li>
+                    <li>I won an Excellent Presentation Award at Tokyo Tech's Multidisciplinary Internation Student Workshop: 
+                        <span class="image-link" data-img="MISW-Award.png">see certificate here</span>
+                    </li>
                 </ul>
             </p>
             
@@ -385,13 +423,22 @@
             </li></ul>-->
 
             <p>I use <b>Blender</b> and <b>Unity</b> to create the stimuli for my user studies. 
-                I code in <b>Python</b> for analysis and computational modeling and <b>C#</b> for making stimuli.
-                One of my hobbies is <b>graphic design</b> and I am an amateur illustrator. 
+                I code in <b>Python</b> for analysis and computational modeling and <b>C#</b> for making stimuli.</p>
+
+
+            <p>One of my hobbies is <b>graphic design</b> and I am an amateur illustrator. 
                 This also means that I am familiar with using CSS, HTML, and JavaScript in <b>web design</b>.
-                My other hobby is <b>creative writing</b> so I'm very open to helping friends review their application materials and manuscripts.
-                (I plan to add some of my output here soon!)
+                I designed the <b>logo</b> for the 2025 CIAN-CVR conference The Brain and Integrative Vision: 
+                <span class="image-link" data-img="Logo9.png">see the logo here</span>.</p>
+
+
+
+            <p>My other hobby is <b>creative writing</b> so I'm very open to helping friends review their application materials and manuscripts. :)
+               
             </p>
         </div>
+
+
 
         <!-- <div class="section" id="activities">
             <h2>Co-curricular Activities</h2>
@@ -408,6 +455,11 @@
         </div>
 
 
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="img01" alt="Image Description">
     </div>
 
     <div class="menu">
@@ -443,6 +495,39 @@
             }
         });
     });
+
+        // Get the modal
+        const modal = document.getElementById("myModal");
+    
+        // Get the <span> element that closes the modal
+        const closeModal = document.getElementById("closeModal");
+
+        // Get the image element in the modal
+        const modalImage = document.getElementById("img01");
+    
+        // Get all image links
+        const imageLinks = document.querySelectorAll('.image-link');
+
+        // When an image link is clicked, open the modal and set the image source
+        imageLinks.forEach(link => {
+            link.onclick = function() {
+                const imgSrc = this.getAttribute('data-img'); // Get image source from data attribute
+                modalImage.src = imgSrc; // Set the image source
+                modal.style.display = "block"; // Show the modal
+            }
+        });
+        
+        // When the user clicks on <span> (x), close the modal
+        closeModal.onclick = function() {
+            modal.style.display = "none"; // Hide the modal
+        }
+        
+        // When the user clicks anywhere outside of the image, close the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none"; // Hide the modal
+            }
+        }
 </script>
 
 </body>
